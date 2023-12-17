@@ -1,0 +1,52 @@
+{
+    "mh_novapost_city": {
+        "column": {
+            "city_id": true,
+            "ref": true,
+            "name_ua": true,
+            "area": true,
+            "type_ua": true
+        },
+        "index": {
+            "MH_NOVAPOST_CITY_CITY_ID": true,
+            "MH_NOVAPOST_CITY_REF": true,
+            "MH_NOVAPOST_CITY_NAME_UA": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "mh_novapost_warehouse": {
+        "column": {
+            "warehouse_id": true,
+            "ref": true,
+            "city_ref": true,
+            "name_ua": true,
+            "number": true
+        },
+        "index": {
+            "MH_NOVAPOST_WAREHOUSE_REF_CITY_REF": true,
+            "MH_NOVAPOST_WAREHOUSE_NAME_UA": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "mh_novapost_postoffice": {
+        "column": {
+            "postoffice_id": true,
+            "ref": true,
+            "city_ref": true,
+            "name_ua": true,
+            "address_ua": true,
+            "number": true
+        },
+        "index": {
+            "MH_NOVAPOST_POSTOFFICE_REF_CITY_REF": true,
+            "MH_NOVAPOST_POSTOFFICE_NAME_UA": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

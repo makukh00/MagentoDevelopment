@@ -1,0 +1,16 @@
+{
+  "name": "makukh/magento2-nova-post",
+  "version": "1.0.0",
+  "description": "The shipping method extension which allows you to use Nova Post (https://novapost.com/) delivery.",
+  "type": "magento2-module",
+  "require": {
+  },
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Makukh\\NovaPost\\": ""
+    }
+  }
+}

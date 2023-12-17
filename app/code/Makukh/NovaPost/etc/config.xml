@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <carriers>
+            <novapost>
+                <active>1</active>
+                <allowed_methods>delivery</allowed_methods>
+                <methods>delivery</methods>
+                <sallowspecific>0</sallowspecific>
+                <model>Makukh\NovaPost\Model\Checkout\Carrier</model>
+                <name>Nova Post</name>
+                <title>Nova Post Shipping</title>
+                <handling_type>F</handling_type>
+            </novapost>
+        </carriers>
+    </default>
+</config>

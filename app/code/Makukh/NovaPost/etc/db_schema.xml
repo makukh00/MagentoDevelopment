@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="mh_novapost_city" resource="default" engine="innodb" comment="">
+        <column xsi:type="int" name="city_id" unsigned="true" nullable="false" identity="true"
+                comment="Entity city id"/>
+        <column xsi:type="varchar" name="ref" nullable="false" comment="City Identifier"/>
+        <column xsi:type="varchar" name="name_ua" nullable="false" comment="City name ua"/>
+        <column xsi:type="varchar" name="area" nullable="false" comment="City area"/>
+        <column xsi:type="varchar" name="type_ua" nullable="false" comment="City type ua"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="city_id"/>
+        </constraint>
+        <index referenceId="MH_NOVAPOST_CITY_CITY_ID" indexType="btree">
+            <column name="city_id"/>
+        </index>
+        <index referenceId="CITY_IDENTIFIER" indexType="btree">
+            <column name="ref"/>
+        </index>
+        <index referenceId="CITY_NAME" indexType="fulltext">
+            <column name="name_ua"/>
+        </index>
+    </table>
+    <table name="mh_novapost_warehouse" resource="default" engine="innodb" comment="For module Yu_NovaPoshta. Warehouses.">
+        <column xsi:type="int" name="warehouse_id" padding="10" unsigned="true" nullable="false" identity="true"
+                comment="Warehouse ID"/>
+        <column xsi:type="varchar" name="ref" nullable="false" length="36" comment="Warehouse Identifier"/>
+        <column xsi:type="varchar" name="city_ref" nullable="false" length="36" comment="City Identifier"/>
+        <column xsi:type="varchar" name="name_ua" nullable="false" length="99" comment="Warehouse Name UA"/>
+        <column xsi:type="int" name="number" nullable="false" unsigned="true" comment="Warehouse number"/>
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="warehouse_id"/>
+        </constraint>
+
+        <index referenceId="WAREHOUSE_IDENTIFIER" indexType="btree">
+            <column name="ref"/>
+            <column name="city_ref"/>
+        </index>
+
+        <index referenceId="WAREHOUSE_NAME" indexType="fulltext">
+            <column name="name_ua"/>
+        </index>
+    </table>
+    <table name="mh_novapost_postoffice" resource="default" engine="innodb" comment="For module Yu_NovaPoshta. Warehouses.">
+        <column xsi:type="int" name="postoffice_id" padding="10" unsigned="true" nullable="false" identity="true"
+                comment="Postoffice ID"/>
+        <column xsi:type="varchar" name="ref" nullable="false" length="36" comment="Postoffice Identifier"/>
+        <column xsi:type="varchar" name="city_ref" nullable="false" length="36" comment="Postoffice Identifier"/>
+        <column xsi:type="varchar" name="name_ua" nullable="false" length="99" comment="Postoffice Name UA"/>
+        <column xsi:type="varchar" name="address_ua" nullable="false" length="99" comment="Postoffice Addres UA"/>
+        <column xsi:type="int" name="number" nullable="false" unsigned="true" comment="Postoffice number"/>
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="postoffice_id"/>
+        </constraint>
+
+        <index referenceId="POSTOFFICE_IDENTIFIER" indexType="btree">
+            <column name="ref"/>
+            <column name="city_ref"/>
+        </index>
+
+        <index referenceId="POSTOFFICE_NAME" indexType="fulltext">
+            <column name="name_ua"/>
+        </index>
+    </table>
+</schema>
